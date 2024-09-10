@@ -15,6 +15,7 @@
                     <p class="tm-pt-30">
                       {{post.content}}
                     </p>
+                    {% if user.is_authenticated %}
                     <div class="row">
                         <div class="col-6">
                            <a href="{% url 'edit' post.id %}"><button class="btn-success">Edit</button></a>
@@ -26,6 +27,7 @@
                             </form>
                         </div>
                     </div>
+                    {% endif %}
                     <div class="d-flex justify-content-between tm-pt-45">
                         <span class="tm-color-primary">Travel . Events</span>
                         <span class="tm-color-primary">{{post.created_at}}</span>

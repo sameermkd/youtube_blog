@@ -3,7 +3,7 @@ from . forms import MakePost, CustomUserCreationForm
 from . models import Post
 from django.contrib.auth.decorators import login_required
 
-@login_required
+
 def index(request):
     post=Post.objects.all()
     return render(request,"index.html",{"post":post})

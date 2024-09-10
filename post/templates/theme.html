@@ -36,10 +36,19 @@ https://templatemo.com/tm-553-xtra-blog
                             <i class="fas fa-home"></i>
                             Blog Home
                         </a></li>
+                    {% if user.is_authenticated %}
                     <li class="tm-nav-item"><a href="/post" class="tm-nav-link">
                             <i class="fas fa-pen"></i>
                             Create a Post
                         </a></li>
+                        <li class="tm-nav-item"><a href="" class="tm-nav-link">
+                            <i class="far fa-comments"></i>
+                            <form action="{% url 'logout' %}" method="post">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-default">Logout</button>
+                            </form>
+                        </a></li>
+                    {% else %}
                     <li class="tm-nav-item"><a href="/register" class="tm-nav-link">
                             <i class="fas fa-users"></i>
                             Register
@@ -48,13 +57,7 @@ https://templatemo.com/tm-553-xtra-blog
                             <i class="far fa-comments"></i>
                             Login
                         </a></li>
-                    <li class="tm-nav-item"><a href="" class="tm-nav-link">
-                            <i class="far fa-comments"></i>
-                            <form action="{% url 'logout' %}" method="post">
-                                {% csrf_token %}
-                                <button type="submit" class="btn btn-default">Logout</button>
-                            </form>
-                        </a></li>
+                    {% endif %}
                 </ul>
             </nav>
             <div class="tm-mb-65">
